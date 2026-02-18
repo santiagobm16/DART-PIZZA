@@ -10,6 +10,15 @@
 # PARTE 2 – IDENTIFICAR LOS SERVICIOS
 Paso 2: Dividir el sistema
 1. ¿Qué funciones principales tiene el sistema?
-   Reg
-3. ¿Qué partes pueden trabajar por separado?
- ¿Qué procesos son independientes?
+   - Registro de Autenticación  
+   - Resgitro de Inventario y productos
+   - Pedidos
+   - Pago
+   - Historial de Gastos y Ventas
+   - Notificacion
+
+2. ¿Qué partes pueden trabajar por separado?
+   2.1 Autenticacion
+     - Registrar
+     - Iniciar
+4. ¿Qué procesos son independientes?
