@@ -98,3 +98,12 @@ Rta: esto afectaria gravemente el funcionamiento del negocio, porque generaria e
 4. Pregunta clave:
 ¿Todos los servicios usan la misma base de datos o cada uno tiene la suya?
 Rta: no, cada servicio es independiente y maneja su propia base de datos.
+
+# PARTE 6 – FALLAS Y RIESGOS
+1. ¿Quién usará el sistema?
+Rta:
+- Administrador
+- Cliente
+2. Pregunta clave:
+¿Todos pueden hacer lo mismo?
+Rta: no, el administrador gestiona los productos, el inventario, los pedidos y ve el historial financiero. Mientras que el cliente solo se registra, inicia sesión, ve los productos, realiza pedidos y pagos.
