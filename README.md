@@ -8,4 +8,3 @@ Rta: En Nuestro caso los roles seria el de Administrador y Cliente.
 - Cliente: podra registrarse,visualizar los productos, realizar los pedidos y pagos.
 3. ¿Qué pasaría si no existiera?
 Rta: Sin el sistema, la pizzería tendria una gestión manual e ineficiente, lo que limita sus ventas ya que estamos en un entorno donde las aplicaciones digitales dominan el mercado.
-
