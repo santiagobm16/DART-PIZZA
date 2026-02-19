@@ -64,3 +64,16 @@ Rta:
 - Inventario → responde → administrador
 - Historial de gastos → responde → administrador
 
+# PARTE 4 – ELEGIR LA ARQUITECTURA
+Decidan cuál usarán:
+Rta:elegimos
+- Microservicios
+Preguntas guía:
+1. ¿Cuántos usuarios tendrá el sistema?
+Rta: por un inicio el sistema tendra pocos usuarios entre 50 y 100. A medida que la pizzeria sea mas conocida tendra mas usuarios.
+2. ¿Necesita escalar?
+Rta: si, porque se espera tener muchos mas usuarios y poder integrarle algunas funciones al sistema. 
+3. ¿Es un sistema pequeño o grande?
+Rta: por el momento es un sistema pequeño que hace lo esencial.
+Justifiquen su elección:
+Elegimos esta arquitectura porque tiene tolerancia a fallos, debido a que permite dividir el sistema en servicios independientes, ya que si un servicio falla, los demas pueden seguir funcionando sin afectar todo el sistema, ademas cada servicio puede desarrollarse y mejorarse de manera independiente.
