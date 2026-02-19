@@ -8,3 +8,28 @@ Rta: En Nuestro caso los roles seria el de Administrador y Cliente.
 - Cliente: podra registrarse,visualizar los productos, realizar los pedidos y pagos.
 3. ¿Qué pasaría si no existiera?
 Rta: Sin el sistema, la pizzería tendria una gestión manual e ineficiente, lo que limita sus ventas ya que estamos en un entorno donde las aplicaciones digitales dominan el mercado.
+
+# PARTE 2 – IDENTIFICAR LOS SERVICIOS
+1. ¿Qué funciones principales tiene el sistema?
+Rta: 
+- Registro y autenticación
+- Gestión de inventario y productos
+- Gestión de pedidos
+- Pago
+- Historial de gastos y ventas
+- Notificaciones
+2. ¿Qué partes pueden trabajar por separado? 
+Rta:
+- Registro y autenticación
+- Inventario y productos
+- Pedidos
+- Pagos
+- Notificaciones
+- Historial de gastos y ventas
+3. ¿Qué procesos son independientes?
+Rta:
+- Inventario: atuliazar stock y productos
+- Pagos: confirmación de transacciones
+- Notificaciones: envío de avisos al cliente y administrador
+
+
