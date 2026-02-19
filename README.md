@@ -95,6 +95,15 @@ Rta:
 - Información de usuarios
 3. ¿Qué pasaría si se pierden?
 Rta: esto afectaria gravemente el funcionamiento del negocio, porque generaria errores en los pedidos y esto genera perdidas económicas y una inestabilidad en el historial de gastos y ventas.
+
+# PARTE 6 – FALLAS Y RIESGOS
+1. ¿Quién usará el sistema?
+Rta:
+- Administrador
+- Cliente
+2. Pregunta clave:
+¿Todos pueden hacer lo mismo?
+Rta: no, el administrador gestiona los productos, el inventario, los pedidos y ve el historial financiero. Mientras que el cliente solo se registra, inicia sesión, ve los productos, realiza pedidos y pagos.
 4. Pregunta clave:
 ¿Todos los servicios usan la misma base de datos o cada uno tiene la suya?
 Rta: no, cada servicio es independiente y maneja su propia base de datos.
