@@ -32,4 +32,35 @@ Rta:
 - Pagos: confirmación de transacciones
 - Notificaciones: envío de avisos al cliente y administrador
 
+# PARTE 3 – ¿CÓMO SE COMUNICAN?
+1. ¿Qué servicio necesita información de otro?
+Rta:
+- Pedidos → solicita → inventario
+- Pedidos → registra → historial de ventas
+
+- Cliente → solicita → autenticación
+- Cliente → solicita → productos
+
+- Administrador → solicita → inventario
+- administrador → solicita → historial de gastos  
+2. ¿Quién solicita datos?
+Rta:
+- Pedidos → solicita → inventario
+- Pedidos → solicita → pagos
+
+- Cliente → solicita → autenticación
+- Cliente → solicita → productos
+
+- Administrador → solicita → inventario
+- Administrador → solicita → historial de gastos
+3. ¿Quién responde?
+Rta:
+- Inventario → responde → pedidos
+- historial de ventas → responde → pedidos
+
+- Autenticación → valida → cliente
+- Productos → responde → cliente
+
+- Inventario → responde → administrador
+- Historial de gastos → responde → administrador
 
