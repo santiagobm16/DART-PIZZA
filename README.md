@@ -108,3 +108,13 @@ Rta: no, el administrador gestiona los productos, el inventario, los pedidos y v
 ¿Todos los servicios usan la misma base de datos o cada uno tiene la suya?
 Rta: no, cada servicio es independiente y maneja su propia base de datos.
 
+# PARTE 7 — FALLAS Y RIESGOS
+Pensar como ingenieros reales
+¿Qué pasaría si falla:
+- servicio de pagos: podrian suceder dos situaciones, la primera es que el cliente no pueda finalizar su pedido y la segunda es que si finalice el pedido pero el pago no se efectue generando perdidas a la pizzería.
+- base de datos: en el caso de que esta falle no habra información sobre los usuarios, impidiendo su inicio de sesión. También no mostraria los productos impidiendo realizar los pedidos y pagos.
+- servidor principal: si este llega a fallar el administrador y los usuarios no podran acceder a la plataforma.
+Escriban posibles soluciones:
+- reintentos: automatizar el pago para que si no se efectua vuelva a intentarlo hasta que se genere y notificar al usuario sobre el estado de la transaccion y al administrador si se hizo el pago correctamente. 
+- notificaciones:
+- respaldo de datos: generar una copia de seguridad semanalmente en la base de datos, lo que ayudaría a conservar la información, pero la información que se ingrese despues de la copia no quedara registrada y por ello se perdera.
