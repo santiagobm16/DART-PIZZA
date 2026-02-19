@@ -78,4 +78,24 @@ Rta: por el momento es un sistema pequeño que hace lo esencial.
 Justifiquen su elección:
 Elegimos esta arquitectura porque tiene tolerancia a fallos, debido a que permite dividir el sistema en servicios independientes, ya que si un servicio falla, los demas pueden seguir funcionando sin afectar todo el sistema, ademas cada servicio puede desarrollarse y mejorarse de manera independiente.
 
+# PARTE 5 – BASE DE DATOS
+1. ¿Qué información debe guardarse?
+Rta:
+- Usuarios
+- Productos
+- Inventario
+- Pedidos
+- Pagos
+- Historial de gastos y ventas 
+2. ¿Qué datos son críticos?
+Rta:
+- Pedidos
+- Pagos
+- Inventario
+- Información de usuarios
+3. ¿Qué pasaría si se pierden?
+Rta: esto afectaria gravemente el funcionamiento del negocio, porque generaria errores en los pedidos y esto genera perdidas económicas y una inestabilidad en el historial de gastos y ventas.
+4. Pregunta clave:
+¿Todos los servicios usan la misma base de datos o cada uno tiene la suya?
+Rta: no, cada servicio es independiente y maneja su propia base de datos.
 
