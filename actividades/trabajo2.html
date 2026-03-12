@@ -1,0 +1,487 @@
+<<<<<<<< HEAD:Actividad 2.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Actividad Clase 4</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+h1 {
+  text-align: center;
+}
+
+.section {
+  margin-top: 30px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.line {
+  border-bottom: 1px solid #ccc;
+  margin: 8px 0 16px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #e9eef3;
+}
+
+.note {
+  background: #eef7ff;
+  padding: 15px;
+  border-left: 4px solid #3498db;
+  margin-top: 20px;
+}
+
+.footer {
+  margin-top: 30px;
+  padding: 15px;
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>🌐 Actividad Clase 4</h1>
+<h2>Comunicación entre Servicios + REST + Eventos + Service Discovery</h2>
+
+<p><strong>Equipo:</strong> Santiago Bermudez Muñoz</p>
+<p><strong>Proyecto:</strong> DART-PIZZA</p>
+
+<div class="section">
+<h2>🪜 1. Interacciones entre Servicios</h2>
+
+<p><strong>Interacción 1 - Crear pedido</strong></p>
+<label>Servicio que envía: usuario</label>
+<div class="line"></div>
+<label>Servicio que recibe: gestión de pedido</label>
+<div class="line"></div>
+<label>Información enviada: datos de pedido (productos, tamaño, catidad, valor y direccion)</label>
+<div class="line"></div>
+<label>¿Qué sucede si no responde?: no se generaria el pedido y deberia realizarlo nuevamente</label>
+<div class="line"></div>
+
+
+<p><strong>Interacción 2 - Verificacion de productos</strong></p>
+<label>Servicio que envía: gestión de pedidos </label>
+<div class="line"></div>
+<label>Servicio que recibe: gestión inventario y productos</label>
+<div class="line"></div>
+<label>Información enviada: verifica que la cantidad de productos exista en el invetario</label>
+<div class="line"></div>
+<label>¿Qué sucede si no responde?: el pedido se generaria sin saber si esta disponible</label>
+<div class="line"></div>
+
+
+<p><strong>Interacción 3 - Proceso de pago</strong></p>
+<label>Servicio que envía: gestión de pedidos </label>
+<div class="line"></div>
+<label>Servicio que recibe: pago</label>
+<div class="line"></div>
+<label>Información enviada: productos, valor total y forma de pago </label>
+<div class="line"></div>
+<label>¿Qué sucede si no responde?: no se genera la solicitud de pedido</label>
+<div class="line"></div>
+
+<div class="section">
+<h2>🪜 2. REST o Eventos</h2>
+
+<table>
+<tr>
+<th>Interacción</th>
+<th>REST</th>
+<th>Evento</th>
+<th>¿Por qué?</th>
+</tr>
+<tr>
+<td>1</td>
+<td>X</td>
+<td></td>
+<td>La pizzería necesita esta interacción para saber si el pedido se genera o no</td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td>X</td>
+<td>La verificación de inventario puede llevarse a cabo sin una respuesta inmediata</td>
+</tr>
+<tr>
+<td>3</td>
+<td>X</td>
+<td></td>
+<td>Se necesita de manera inmediata la confirmación del pago para continuar con el proceso</td>
+</tr>
+</table>
+</div>
+
+<div class="section">
+<h2>🪜 3. Síncrono o Asíncrono</h2>
+
+<table>
+<tr>
+<th>Interacción</th>
+<th>Síncrono</th>
+<th>Asíncrono</th>
+<th>Justificación</th>
+</tr>
+<tr>
+<td>1</td>
+<td>X</td>
+<td></td>
+<td>El sistema se detiene hasta que recibe la respuesta del servicio</td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td>X</td>
+<td>Este servicio puede seguir sin esperar una respuesta</td>
+</tr>
+<tr>
+<td>3</td>
+<td>X</td>
+<td></td>
+<td>Se debe esperar la confirmacion del pago</td>
+</tr>
+</table>
+</div>
+
+<div class="section">
+<h2>🪜 4. Eventos Importantes del Sistema</h2>
+1️⃣     Pedido <br><br>
+2️⃣     Pago <br><br>
+3️⃣     Invetario
+</div>
+
+<div class="section">
+<h2>🪜 5. Análisis de Fallos</h2>
+<label>Servicio más crítico:</label>
+<div class="line">Servicio de pagos</div>
+<label>¿Qué pasaría si falla?</label>
+<div class="line">El cliente no podra completar la compra o el pedido se procesaria sin que se pagara.</div>
+<label>¿El sistema debe detenerse o continuar?</label>
+<div class="line">Deberia continuar, pero no deberia dejar finalizar la compra.</div>
+<label>¿Cómo podrían manejar este fallo?</label>
+<div class="line">- Se podria hacer que el sistema vuelva a intentarlo automaticamente.
+<div>- Se informaria al usuario y al administrador.</div>  
+<div>- Tambien el pago quedaria registrado como pendiente.</div>
+</div>
+
+<div class="section">
+<h2>🪜 6. Service Discovery</h2>
+<label>¿Qué problema ocurre si cambia la IP de un servicio?</label>
+<div class="line">Otros servicios no podrian encontrarlo y esto causaria fallos en la comunicacion.</div>
+<label>¿Cómo sabría un servicio dónde encontrar otro?</label>
+<div class="line">A traves del servicio de deteccion de servicios. </div>
+<label>¿Por qué sería útil Service Discovery?</label>
+<div class="line">Porque facilita que los servicio se encuentren entre si sin necesidad de direcciones IP fijas.</div>
+<label>¿Dónde lo aplicarían en su sistema?</label>
+<div class="line">En pedidos, pagos, inventario y notificaciones.</div>
+</div>
+
+<div class="section">
+<h2>🪜 7. Mini Diagrama</h2>
+<p>Dibujen:</p>
+<p><strong>Servicio A → Service Discovery → Servicio B</strong></p>
+ <img src="DiagramaPizzeria.png" alt="Mini Diagrama de Servicios" width="500">
+</div>
+
+<div class="note">
+💡 <strong>Ayuda rápida</strong><br>
+REST → petición directa<br>
+Evento → algo ocurrió<br>
+Síncrono → espera respuesta<br>
+Asíncrono → continúa sin esperar<br>
+Service Discovery → permite encontrar servicios automáticamente
+</div>
+
+<div class="footer">
+🎤 El equipo debe poder explicar:<br>
+✔ una interacción importante<br>
+✔ un evento del sistema<br>
+✔ qué pasa si un servicio falla<br>
+✔ dónde usarían Service Discovery
+</div>
+
+</div>
+</body>
+========
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Actividad Clase 4</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+h1 {
+  text-align: center;
+}
+
+.section {
+  margin-top: 30px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.line {
+  border-bottom: 1px solid #ccc;
+  margin: 8px 0 16px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #e9eef3;
+}
+
+.note {
+  background: #eef7ff;
+  padding: 15px;
+  border-left: 4px solid #3498db;
+  margin-top: 20px;
+}
+
+.footer {
+  margin-top: 30px;
+  padding: 15px;
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>🌐 Actividad Clase 4</h1>
+<h2>Comunicación entre Servicios + REST + Eventos + Service Discovery</h2>
+
+<p><strong>Equipo:</strong> Santiago Bermudez Muñoz</p>
+<p><strong>Proyecto:</strong> DART-PIZZA</p>
+
+<div class="section">
+<h2>🪜 1. Interacciones entre Servicios</h2>
+
+<p><strong>Interacción 1 - Crear pedido</strong></p>
+<label>Servicio que envía: usuario</label>
+<div class="line"></div>
+<label>Servicio que recibe: gestión de pedido</label>
+<div class="line"></div>
+<label>Información enviada: datos de pedido (productos, tamaño, catidad, valor y direccion)</label>
+<div class="line"></div>
+<label>¿Qué sucede si no responde?: no se generaria el pedido y deberia realizarlo nuevamente</label>
+<div class="line"></div>
+
+
+<p><strong>Interacción 2 - Verificacion de productos</strong></p>
+<label>Servicio que envía: gestión de pedidos </label>
+<div class="line"></div>
+<label>Servicio que recibe: gestión inventario y productos</label>
+<div class="line"></div>
+<label>Información enviada: verifica que la cantidad de productos exista en el invetario</label>
+<div class="line"></div>
+<label>¿Qué sucede si no responde?: el pedido se generaria sin saber si esta disponible</label>
+<div class="line"></div>
+
+
+<p><strong>Interacción 3 - Proceso de pago</strong></p>
+<label>Servicio que envía: gestión de pedidos </label>
+<div class="line"></div>
+<label>Servicio que recibe: pago</label>
+<div class="line"></div>
+<label>Información enviada: productos, valor total y forma de pago </label>
+<div class="line"></div>
+<label>¿Qué sucede si no responde?: no se genera la solicitud de pedido</label>
+<div class="line"></div>
+
+<div class="section">
+<h2>🪜 2. REST o Eventos</h2>
+
+<table>
+<tr>
+<th>Interacción</th>
+<th>REST</th>
+<th>Evento</th>
+<th>¿Por qué?</th>
+</tr>
+<tr>
+<td>1</td>
+<td>X</td>
+<td></td>
+<td>La pizzería necesita esta interacción para saber si el pedido se genera o no</td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td>X</td>
+<td>La verificación de inventario puede llevarse a cabo sin una respuesta inmediata</td>
+</tr>
+<tr>
+<td>3</td>
+<td>X</td>
+<td></td>
+<td>Se necesita de manera inmediata la confirmación del pago para continuar con el proceso</td>
+</tr>
+</table>
+</div>
+
+<div class="section">
+<h2>🪜 3. Síncrono o Asíncrono</h2>
+
+<table>
+<tr>
+<th>Interacción</th>
+<th>Síncrono</th>
+<th>Asíncrono</th>
+<th>Justificación</th>
+</tr>
+<tr>
+<td>1</td>
+<td>X</td>
+<td></td>
+<td>El sistema se detiene hasta que recibe la respuesta del servicio</td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td>X</td>
+<td>Este servicio puede seguir sin esperar una respuesta</td>
+</tr>
+<tr>
+<td>3</td>
+<td>X</td>
+<td></td>
+<td>Se debe esperar la confirmacion del pago</td>
+</tr>
+</table>
+</div>
+
+<div class="section">
+<h2>🪜 4. Eventos Importantes del Sistema</h2>
+1️⃣     Pedido <br><br>
+2️⃣     Pago <br><br>
+3️⃣     Invetario
+</div>
+
+<div class="section">
+<h2>🪜 5. Análisis de Fallos</h2>
+<label>Servicio más crítico:</label>
+<div class="line">Servicio de pedidos</div>
+<label>¿Qué pasaría si falla?</label>
+<div class="line">El cliente no podra realizar el pedido volviendo obsoleto el sistema.</div>
+<label>¿El sistema debe detenerse o continuar?</label>
+<div class="line">Deberia detenerse, porque tiene que esperar que se genere la orden de compra.</div>
+<label>¿Cómo podrían manejar este fallo?</label>
+<div class="line">- Se podria hacer que el sistema vuelva a intentarlo automaticamente.
+<div>- Se informaria al usuario y permitira generar la orden nuevamente.</div>  
+</div>
+
+<div class="section">
+<h2>🪜 6. Service Discovery</h2>
+<label>¿Qué problema ocurre si cambia la IP de un servicio?</label>
+<div class="line">Otros servicios no podrian encontrarlo y esto causaria fallos en la comunicacion.</div>
+<label>¿Cómo sabría un servicio dónde encontrar otro?</label>
+<div class="line">A traves de la funcion de deteccion de servicios. </div>
+<label>¿Por qué sería útil Service Discovery?</label>
+<div class="line">Porque facilita que los servicio se encuentren entre si sin necesidad de direcciones IP fijas.</div>
+<label>¿Dónde lo aplicarían en su sistema?</label>
+<div class="line">En usuarios, pedidos, pagos, inventario y notificaciones.</div>
+</div>
+
+<div class="section">
+<h2>🪜 7. Mini Diagrama</h2>
+<p>Dibujen:</p>
+<p><strong>Servicio A → Service Discovery → Servicio B</strong></p>
+<<<<<<<< HEAD:trabajo2.html
+<img src="DiagramaPizzeria.png" alt="Mini Diagrama de Servicios" width="500">
+========
+ <img src="DiagramaPizzeria.png" alt="Mini Diagrama de Servicios" width="500">
+>>>>>>>> origin/main:Actividad 2.html
+</div>
+
+<div class="note">
+💡 <strong>Ayuda rápida</strong><br>
+REST → petición directaa<br>
+Evento → algo ocurrió<br>
+Síncrono → espera respuesta<br>
+Asíncrono → continúa sin esperar<br>
+Service Discovery → permite encontrar servicios automáticamente
+</div>
+
+<div class="footer">
+🎤 El equipo debe poder explicar:<br>
+✔ una interacción importante<br>
+✔ un evento del sistema<br>
+✔ qué pasa si un servicio falla<br>
+✔ dónde usarían Service Discovery
+</div>
+
+</div>
+</body>
+>>>>>>>> fef899d (Agregue la estructura del proyecto y las instrucciones de configuración al archivo README):actividades/trabajo2.html
+</html>
