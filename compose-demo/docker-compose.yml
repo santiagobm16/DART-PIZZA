@@ -1,0 +1,10 @@
+services:
+  web:
+    image: nginx
+    ports:
+      - "8082:80"
+  
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
