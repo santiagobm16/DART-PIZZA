@@ -206,6 +206,7 @@ Abre en el navegador: [http://localhost:8080/linktree.html](http://localhost:808
 ### 3. API REST (Node.js + Express)
 ```bash
 cd api-rest
+npm install
 docker build -t dart-pizza-api .
 docker run -d -p 3000:3000 --name apirest dart-pizza-api
 ```
