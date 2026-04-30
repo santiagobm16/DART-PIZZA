@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h3>Gestión de Pedidos</h3>
+
+<input id="buscador" class="form-control mb-3" placeholder="Buscar pedido...">
+
+<div id="pendientes" class="row mb-4"></div>
+
+<table class="table table-hover bg-white shadow-sm">
+<thead class="table-dark">
+<tr>
+<th>ID</th>
+<th>Cliente</th>
+<th>Estado</th>
+<th>Detalle</th>
+<th>Total</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody id="tabla"></tbody>
+</table>
+
+<!-- MODAL RECHAZO -->
+<div class="modal fade" id="modalRechazo">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+
+      <h5 id="tituloRechazo">Motivo del rechazo</h5>
+      <textarea id="observacion" class="form-control"></textarea>
+
+      <div class="d-flex gap-2 mt-3">
+        <button onclick="confirmarRechazo()" class="btn btn-danger">Confirmar</button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="/static/js/admin-dashboard.js"></script>
+
+{% endblock %}

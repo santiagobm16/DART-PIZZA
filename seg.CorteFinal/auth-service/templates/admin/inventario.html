@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h3 class="mb-3">Inventario</h3>
+
+<!-- 🔘 FILTROS -->
+<div class="mb-3">
+  <button class="btn btn-outline-dark btn-sm" onclick="filtrar('todos')">Todos</button>
+  <button class="btn btn-outline-primary btn-sm" onclick="filtrar('pizza')">Pizzas</button>
+  <button class="btn btn-outline-warning btn-sm" onclick="filtrar('adicion')">Adiciones</button>
+  <button class="btn btn-outline-success btn-sm" onclick="filtrar('bebida')">Bebidas</button>
+</div>
+
+<button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalProducto">
+  + Nuevo Producto
+</button>
+
+<div id="productos" class="row"></div>
+
+<!-- 🧾 MODAL CREAR / EDITAR -->
+<div class="modal fade" id="modalProducto">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+
+      <h5 id="modalTitulo">Nuevo Producto</h5>
+
+      <input id="nombre" class="form-control mt-2" placeholder="Nombre">
+      <input id="precio" type="number" class="form-control mt-2" placeholder="Precio">
+
+      <select id="tipo" class="form-control mt-2">
+        <option value="pizza">Pizza</option>
+        <option value="adicion">Adición</option>
+        <option value="bebida">Bebida</option>
+      </select>
+
+      <input id="stock" type="number" class="form-control mt-2" placeholder="Stock (solo bebidas)">
+      <input id="imagen" class="form-control mt-2" placeholder="URL de imagen">
+
+      <div class="d-flex gap-2 mt-3">
+        <button onclick="guardar()" class="btn btn-success">Confirmar</button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+
+      <div id="msgForm" class="small mt-2"></div>
+
+    </div>
+  </div>
+</div>
+<script src="/static/js/admin-inventario.js"></script>
+
+{% endblock %}
