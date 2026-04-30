@@ -239,28 +239,29 @@ docker stop sitio apirest
 docker rm sitio apirest
 ```
 ---
+
 # DART-PIZZA SEGUNDA ENTREGA
 # Descripción del proyecto.
-```rta: El proyecto consiste en el desarrollo de una aplicación web para la gestión de una pizzería, que permite a los clientes registrarse, iniciar sesión, visualizar productos y realizar pedidos, mientras que el administrador puede gestionar el inventario y dar seguimiento a los pedidos. El sistema está construido bajo una arquitectura de microservicios utilizando Flask, donde se separan las funcionalidades en servicios independientes: autenticación, inventario y pedidos, coordinados a través de un gateway que actúa como punto único de entrada. Estos servicios se comunican entre sí mediante HTTP dentro de un entorno contenerizado con Docker, y utilizan una base de datos MySQL para la persistencia de la información.
-```
+rta: El proyecto consiste en el desarrollo de una aplicación web para la gestión de una pizzería, que permite a los clientes registrarse, iniciar sesión, visualizar productos y realizar pedidos, mientras que el administrador puede gestionar el inventario y dar seguimiento a los pedidos. El sistema está construido bajo una arquitectura de microservicios utilizando Flask, donde se separan las funcionalidades en servicios independientes: autenticación, inventario y pedidos, coordinados a través de un gateway que actúa como punto único de entrada. Estos servicios se comunican entre sí mediante HTTP dentro de un entorno contenerizado con Docker, y utilizan una base de datos MySQL para la persistencia de la información.
+
 ---
 # Instrucciones claras para ejecución.
 rta: Instrucciones para ejecución
-# 1. Crear entorno virtual
+1. Crear entorno virtual
 En la raíz del proyecto ejecutar: python -m venv venv
 
-# 2. Activar entorno virtual
+2. Activar entorno virtual
 En Windows: venv\Scripts\activate
 
-# 3. Instalar dependencias
+ 3. Instalar dependencias
 pip install -r requirements.txt
 
-# 4. Ejecutar el sistema
+ 4. Ejecutar el sistema
 Opción (Docker): docker-compose up --build
 
-# 5. Acceder al sistema
-```Abrir en el navegador: http://localhost:5000
-```
+ 5. Acceder al sistema
+Abrir en el navegador: http://127.0.0.1:5000
+
 ---
 # Descripción básica de endpoints
 # Gateway (uso principal – frontend)
