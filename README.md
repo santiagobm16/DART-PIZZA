@@ -263,40 +263,41 @@ docker-compose up --build
 2.5. Acceder al sistema, abrir en el navegador:
 http://127.0.0.1:5000
 
-### 3. Descripción básica de endpoints.
-## Gateway (uso principal – frontend)
-GET /api/productos - Obtiene la lista de productos activos desde el servicio de inventario.
-POST /api/productos - Permite crear un nuevo producto en el inventario.
-PUT /api/productos/<id> - Actualiza la información de un producto existente.
-PUT /api/productos/<id>/estado - Activa o desactiva un producto.
-GET /api/pedidos - Lista todos los pedidos registrados.
-POST /api/pedidos - Crea un nuevo pedido (incluye validación de usuario y stock).
-PUT /api/pedidos/<id>/estado - Actualiza el estado de un pedido (preparando, enviado, entregado).
-PUT /api/pedidos/<id>/rechazar - Permite rechazar un pedido con una observación.
-GET /api/pedidos/usuario/<id> - Consulta los pedidos asociados a un usuario específico.
-GET /api/pedidos/<id>/detalle - Muestra el detalle de productos de un pedido.
+### 3.  Descripción básica de endpoints
 
-## Auth Service (usuarios)
-POST /registro - Registra un nuevo usuario en el sistema.
-POST /login - Inicia sesión y crea una sesión de usuario.
-GET /logout - Cierra la sesión del usuario.
-GET /perfil - Obtiene la información del usuario autenticado.
-PUT /perfil - Permite actualizar los datos del usuario.
-PUT /cambiar-password - Permite cambiar la contraseña del usuario.
-GET /usuarios/<id> - Retorna información básica de un usuario (usado por otros servicios).
+# Gateway (uso principal – frontend)
+* **GET /api/productos** → Obtiene la lista de productos activos desde el servicio de inventario.
+* **POST /api/productos** → Permite crear un nuevo producto en el inventario.
+* **PUT /api/productos/<id>** → Actualiza la información de un producto existente.
+* **PUT /api/productos/<id>/estado** → Activa o desactiva un producto.
+* **GET /api/pedidos** → Lista todos los pedidos registrados.
+* **POST /api/pedidos** → Crea un nuevo pedido (incluye validación de usuario y stock).
+* **PUT /api/pedidos/<id>/estado** → Actualiza el estado de un pedido (preparando, enviado, entregado).
+* **PUT /api/pedidos/<id>/rechazar** → Permite rechazar un pedido con una observación.
+* **GET /api/pedidos/usuario/<id>** → Consulta los pedidos asociados a un usuario específico.
+* **GET /api/pedidos/<id>/detalle** → Muestra el detalle de productos de un pedido.
 
-## Inventario Service (productos y stock)
-GET /productos - Lista todos los productos activos.
-POST /productos - Crea un nuevo producto.
-PUT /productos/<id> - Actualiza la información de un producto.
-PUT /productos/<id>/estado - Activa o desactiva un producto.
-GET /validar-stock/<producto_id>/<cantidad> - Verifica si hay suficiente stock disponible.
-POST /descontar-stock - Reduce el stock de un producto después de un pedido.
+# Auth Service (usuarios)
+* **POST /registro** → Registra un nuevo usuario en el sistema.
+* **POST /login** → Inicia sesión y crea una sesión de usuario.
+* **GET /logout** → Cierra la sesión del usuario.
+* **GET /perfil** → Obtiene la información del usuario autenticado.
+* **PUT /perfil** → Permite actualizar los datos del usuario.
+* **PUT /cambiar-password** → Permite cambiar la contraseña del usuario.
+* **GET /usuarios/<id>** → Retorna información básica de un usuario (usado por otros servicios).
 
-## Pedidos Service (gestión de pedidos)
-POST /pedidos - Crea un nuevo pedido validando usuario y stock.
-GET /pedidos - Lista todos los pedidos.
-GET /pedidos/usuario/<id> - Obtiene los pedidos de un usuario específico.
-PUT /pedidos/<id>/estado - Cambia el estado del pedido.
-PUT /pedidos/<id>/rechazar - Marca un pedido como rechazado con una observación.
-GET /pedidos/<id>/detalle - Muestra el detalle de productos de un pedido.
+# Inventario Service (productos y stock)
+* **GET /productos** → Lista todos los productos activos.
+* **POST /productos** → Crea un nuevo producto.
+* **PUT /productos/<id>** → Actualiza la información de un producto.
+* **PUT /productos/<id>/estado** → Activa o desactiva un producto.
+* **GET /validar-stock/<producto_id>/<cantidad>** → Verifica si hay suficiente stock disponible.
+* **POST /descontar-stock** → Reduce el stock de un producto después de un pedido.
+
+# Pedidos Service (gestión de pedidos)
+* **POST /pedidos** → Crea un nuevo pedido validando usuario y stock.
+* **GET /pedidos** → Lista todos los pedidos.
+* **GET /pedidos/usuario/<id>** → Obtiene los pedidos de un usuario específico.
+* **PUT /pedidos/<id>/estado** → Cambia el estado del pedido.
+* **PUT /pedidos/<id>/rechazar** → Marca un pedido como rechazado con una observación.
+* **GET /pedidos/<id>/detalle** → Muestra el detalle de productos de un pedido.
