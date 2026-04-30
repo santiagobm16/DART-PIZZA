@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="sessionData"
+     data-user-id="{{ session.get('usuario_id','') }}"
+     data-rol="{{ session.get('rol','') }}"
+     style="display:none;"></div>
+
+<h3>Mis pedidos</h3>
+
+<table class="table table-hover bg-white shadow-sm">
+<thead class="table-dark">
+<tr>
+<th>ID</th>
+<th>Estado</th>
+<th>Total</th>
+<th>Observación</th>
+</tr>
+</thead>
+<tbody id="tabla"></tbody>
+</table>
+<script src="/static/js/cliente-pedidos.js"></script>
+
+{% endblock %}
