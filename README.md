@@ -1,19 +1,4 @@
 # DART-PIZZA
-<<<<<<< HEAD
-# PARTE 1 — ENTENDER EL PROBLEMA
-1. ¿Qué problema resuelve el sistema?
-Rta:la falta de una plataforma digital eficiente para la pizzeria que apenas este iniciando, que le permita llevar el stock de esta y llevar un control de los gastos y las ventas. Permitira a los clientes realizar pedidos y pagos de forma rapida y visual.
-2. ¿Quién lo usará?
-Rta: En Nuestro caso los roles seria el de Administrador y Cliente.
-- Administrador: podra gestionar productos, inventario, pedidos, gastos y ventas.
-- Cliente: podra registrarse,visualizar los productos, realizar los pedidos y pagos.
-3. ¿Qué pasaría si no existiera?
-Rta: Sin el sistema, la pizzería tendria una gestión manual e ineficiente, lo que limita sus ventas ya que estamos en un entorno donde las aplicaciones digitales dominan el mercado.
-
-# PARTE 2 – IDENTIFICAR LOS SERVICIOS
-1. ¿Qué funciones principales tiene el sistema?
-Rta: 
-=======
 
 ## PARTE 1 — ENTENDER EL PROBLEMA
 
@@ -26,6 +11,7 @@ Rta: En Nuestro caso los roles seria el de Administrador y Cliente.
 - Cliente: podra registrarse, visualizar los productos, realizar los pedidos y pagos.
 
 3. ¿Qué pasaría si no existiera?  
+
 Rta: Sin el sistema, la pizzería tendria una gestión manual e ineficiente, lo que limita sus ventas ya que estamos en un entorno donde las aplicaciones digitales dominan el mercado.
 
 ---
@@ -34,19 +20,14 @@ Rta: Sin el sistema, la pizzería tendria una gestión manual e ineficiente, lo 
 
 1. ¿Qué funciones principales tiene el sistema?  
 Rta:
->>>>>>> b9ca8301c9fc3ee7583d28e9d17b47d895ce17d2
 - Registro y autenticación
 - Gestión de inventario y productos
 - Gestión de pedidos
 - Pago
 - Historial de gastos y ventas
 - Notificaciones
-<<<<<<< HEAD
-2. ¿Qué partes pueden trabajar por separado? 
-=======
 
 2. ¿Qué partes pueden trabajar por separado?  
->>>>>>> b9ca8301c9fc3ee7583d28e9d17b47d895ce17d2
 Rta:
 - Registro y autenticación
 - Inventario y productos
@@ -54,62 +35,6 @@ Rta:
 - Pagos
 - Notificaciones
 - Historial de gastos y ventas
-<<<<<<< HEAD
-3. ¿Qué procesos son independientes?
-Rta:
-- Inventario: atuliazar stock y productos
-- Pagos: confirmación de transacciones
-- Notificaciones: envío de avisos al cliente y administrador
-
-# PARTE 3 – ¿CÓMO SE COMUNICAN?
-1. ¿Qué servicio necesita información de otro?
-Rta:
-- Pedidos → solicita → inventario
-- Pedidos → registra → historial de ventas
-
-- Cliente → solicita → autenticación
-- Cliente → solicita → productos
-
-- Administrador → solicita → inventario
-- administrador → solicita → historial de gastos  
-2. ¿Quién solicita datos?
-Rta:
-- Pedidos → solicita → inventario
-- Pedidos → solicita → pagos
-
-- Cliente → solicita → autenticación
-- Cliente → solicita → productos
-
-- Administrador → solicita → inventario
-- Administrador → solicita → historial de gastos
-3. ¿Quién responde?
-Rta:
-- Inventario → responde → pedidos
-- historial de ventas → responde → pedidos
-
-- Autenticación → valida → cliente
-- Productos → responde → cliente
-
-- Inventario → responde → administrador
-- Historial de gastos → responde → administrador
-
-# PARTE 4 – ELEGIR LA ARQUITECTURA
-Decidan cuál usarán:
-Rta:elegimos
-- Microservicios
-Preguntas guía:
-1. ¿Cuántos usuarios tendrá el sistema?
-Rta: por un inicio el sistema tendra pocos usuarios entre 50 y 100. A medida que la pizzeria sea mas conocida tendra mas usuarios.
-2. ¿Necesita escalar?
-Rta: si, porque se espera tener muchos mas usuarios y poder integrarle algunas funciones al sistema. 
-3. ¿Es un sistema pequeño o grande?
-Rta: por el momento es un sistema pequeño que hace lo esencial.
-Justifiquen su elección:
-Elegimos esta arquitectura porque tiene tolerancia a fallos, debido a que permite dividir el sistema en servicios independientes, ya que si un servicio falla, los demas pueden seguir funcionando sin afectar todo el sistema, ademas cada servicio puede desarrollarse y mejorarse de manera independiente.
-
-# PARTE 5 – BASE DE DATOS
-1. ¿Qué información debe guardarse?
-=======
 
 3. ¿Qué procesos son independientes?  
 Rta:
@@ -175,53 +100,20 @@ Elegimos esta arquitectura porque tiene tolerancia a fallos, debido a que permit
 ## PARTE 5 – BASE DE DATOS
 
 1. ¿Qué información debe guardarse?  
->>>>>>> b9ca8301c9fc3ee7583d28e9d17b47d895ce17d2
 Rta:
 - Usuarios
 - Productos
 - Inventario
 - Pedidos
 - Pagos
-<<<<<<< HEAD
-- Historial de gastos y ventas 
-2. ¿Qué datos son críticos?
-=======
 - Historial de gastos y ventas
 
 2. ¿Qué datos son críticos?  
->>>>>>> b9ca8301c9fc3ee7583d28e9d17b47d895ce17d2
 Rta:
 - Pedidos
 - Pagos
 - Inventario
 - Información de usuarios
-<<<<<<< HEAD
-3. ¿Qué pasaría si se pierden?
-Rta: esto afectaria gravemente el funcionamiento del negocio, porque generaria errores en los pedidos y esto genera perdidas económicas y una inestabilidad en el historial de gastos y ventas.
-
-# PARTE 6 – FALLAS Y RIESGOS
-1. ¿Quién usará el sistema?
-Rta:
-- Administrador
-- Cliente
-2. Pregunta clave:
-¿Todos pueden hacer lo mismo?
-Rta: no, el administrador gestiona los productos, el inventario, los pedidos y ve el historial financiero. Mientras que el cliente solo se registra, inicia sesión, ve los productos, realiza pedidos y pagos.
-4. Pregunta clave:
-¿Todos los servicios usan la misma base de datos o cada uno tiene la suya?
-Rta: no, cada servicio es independiente y maneja su propia base de datos.
-
-# PARTE 7 — FALLAS Y RIESGOS
-Pensar como ingenieros reales
-¿Qué pasaría si falla:
-- servicio de pagos: podrian suceder dos situaciones, la primera es que el cliente no pueda finalizar su pedido y la segunda es que si finalice el pedido pero el pago no se efectue generando perdidas a la pizzería.
-- base de datos: en el caso de que esta falle no habra información sobre los usuarios, impidiendo su inicio de sesión. También no mostraria los productos impidiendo realizar los pedidos y pagos.
-- servidor principal: si este llega a fallar el administrador y los usuarios no podran acceder a la plataforma.
-Escriban posibles soluciones:
-- reintentos: automatizar el pago para que si no se efectua vuelva a intentarlo hasta que se genere y notificar al usuario sobre el estado de la transaccion y al administrador si se hizo el pago correctamente. 
-- notificaciones:
-- respaldo de datos: generar una copia de seguridad semanalmente en la base de datos, lo que ayudaría a conservar la información, pero la información que se ingrese despues de la copia no quedara registrada y por ello se perdera.
-=======
 
 3. ¿Qué pasaría si se pierden?  
 Rta: esto afectaria gravemente el funcionamiento del negocio, porque generaria errores en los pedidos y esto genera perdidas económicas y una inestabilidad en el historial de gastos y ventas.
@@ -315,7 +207,6 @@ Abre en el navegador: [http://localhost:8080/linktree.html](http://localhost:808
 ### 3. API REST (Node.js + Express)
 ```bash
 cd api-rest
-npm install
 docker build -t dart-pizza-api .
 docker run -d -p 3000:3000 --name apirest dart-pizza-api
 ```
@@ -347,4 +238,65 @@ docker compose down
 docker stop sitio apirest
 docker rm sitio apirest
 ```
->>>>>>> b9ca8301c9fc3ee7583d28e9d17b47d895ce17d2
+
+
+
+_________________________________________________________________________________________________________________________________-
+Segundo corte
+
+### 1. Descripción del proyecto:
+El proyecto consiste en el desarrollo de una aplicación web para la gestión de una pizzería, que permite a los clientes registrarse, iniciar sesión, visualizar productos y realizar pedidos, mientras que el administrador puede gestionar el inventario y dar seguimiento a los pedidos. El sistema está construido bajo una arquitectura de microservicios utilizando Flask, donde se separan las funcionalidades en servicios independientes: autenticación, inventario y pedidos, coordinados a través de un gateway que actúa como punto único de entrada. Estos servicios se comunican entre sí mediante HTTP dentro de un entorno contenerizado con Docker, y utilizan una base de datos MySQL para la persistencia de la información.
+
+### 2. Instrucciones claras para ejecución.
+2.1. Crear entorno virtual:
+python -m venv venv
+
+2.2. Activar entorno virtual en Windows:
+venv\Scripts\activate
+
+2.3. Instalar dependencias:
+pip install -r requirements.txt
+
+2.4. Ejecutar el sistema en la visual studio:
+docker-compose up --build
+
+2.5. Acceder al sistema, abrir en el navegador:
+http://localhost:5000
+
+### 3. Descripción básica de endpoints.
+## Gateway (uso principal – frontend)
+GET /api/productos - Obtiene la lista de productos activos desde el servicio de inventario.
+POST /api/productos - Permite crear un nuevo producto en el inventario.
+PUT /api/productos/<id> - Actualiza la información de un producto existente.
+PUT /api/productos/<id>/estado - Activa o desactiva un producto.
+GET /api/pedidos - Lista todos los pedidos registrados.
+POST /api/pedidos - Crea un nuevo pedido (incluye validación de usuario y stock).
+PUT /api/pedidos/<id>/estado - Actualiza el estado de un pedido (preparando, enviado, entregado).
+PUT /api/pedidos/<id>/rechazar - Permite rechazar un pedido con una observación.
+GET /api/pedidos/usuario/<id> - Consulta los pedidos asociados a un usuario específico.
+GET /api/pedidos/<id>/detalle - Muestra el detalle de productos de un pedido.
+
+## Auth Service (usuarios)
+POST /registro - Registra un nuevo usuario en el sistema.
+POST /login - Inicia sesión y crea una sesión de usuario.
+GET /logout - Cierra la sesión del usuario.
+GET /perfil - Obtiene la información del usuario autenticado.
+PUT /perfil - Permite actualizar los datos del usuario.
+PUT /cambiar-password - Permite cambiar la contraseña del usuario.
+GET /usuarios/<id> - Retorna información básica de un usuario (usado por otros servicios).
+
+## Inventario Service (productos y stock)
+GET /productos - Lista todos los productos activos.
+POST /productos - Crea un nuevo producto.
+PUT /productos/<id> - Actualiza la información de un producto.
+PUT /productos/<id>/estado - Activa o desactiva un producto.
+GET /validar-stock/<producto_id>/<cantidad> - Verifica si hay suficiente stock disponible.
+POST /descontar-stock - Reduce el stock de un producto después de un pedido.
+
+## Pedidos Service (gestión de pedidos)
+POST /pedidos - Crea un nuevo pedido validando usuario y stock.
+GET /pedidos - Lista todos los pedidos.
+GET /pedidos/usuario/<id> - Obtiene los pedidos de un usuario específico.
+PUT /pedidos/<id>/estado - Cambia el estado del pedido.
+PUT /pedidos/<id>/rechazar - Marca un pedido como rechazado con una observación.
+GET /pedidos/<id>/detalle - Muestra el detalle de productos de un pedido.
