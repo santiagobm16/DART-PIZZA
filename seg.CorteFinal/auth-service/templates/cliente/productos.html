@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="sessionData"
+     data-user-id="{{ session.get('usuario_id','') }}"
+     data-rol="{{ session.get('rol','') }}"
+     style="display:none;"></div>
+
+<h3 class="mb-3">Productos</h3>
+
+<!-- 🔘 FILTROS -->
+<div class="mb-3">
+  <button class="btn btn-outline-dark btn-sm" onclick="filtrar('todos')">Todos</button>
+  <button class="btn btn-outline-primary btn-sm" onclick="filtrar('pizza')">Pizzas</button>
+  <button class="btn btn-outline-warning btn-sm" onclick="filtrar('adicion')">Adiciones</button>
+  <button class="btn btn-outline-success btn-sm" onclick="filtrar('bebida')">Bebidas</button>
+</div>
+
+<div id="productos" class="row"></div>
+
+<!-- 🛒 BOTÓN CARRITO -->
+<div class="fixed-bottom p-3 bg-light border-top d-flex justify-content-between">
+  <span id="totalTxt">Total: $0</span>
+  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalPedido">
+    Realizar pedido
+  </button>
+</div>
+
+<!-- 🧾 MODAL PEDIDO -->
+<div class="modal fade" id="modalPedido">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+
+      <h5>Resumen del pedido</h5>
+      <div id="resumen"></div>
+
+      <hr>
+
+      <select id="tipo" class="form-control">
+        <option value="local">Consumir en local</option>
+        <option value="domicilio">Domicilio</option>
+      </select>
+
+      <input id="direccion" class="form-control mt-2" placeholder="Dirección" style="display:none;">
+
+      <select class="form-control mt-2">
+        <option>Efectivo</option>
+        <option disabled>Transferencia (próximamente)</option>
+      </select>
+
+      <div class="d-flex gap-2 mt-3">
+        <button onclick="confirmarPedido()" class="btn btn-success">Confirmar</button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="/static/js/cliente-productos.js"></script>
+
+{% endblock %}
