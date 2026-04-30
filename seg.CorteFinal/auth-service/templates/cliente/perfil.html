@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h3>Perfil</h3>
+
+<div class="card p-4 shadow-sm">
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label fw-bold">ID</label>
+            <div class="form-control bg-light">{{ user.id }}</div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label fw-bold">Rol</label>
+            <div class="form-control bg-light text-capitalize">{{ user.rol }}</div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label fw-bold">Nombre</label>
+            <div class="form-control bg-light">{{ user.nombre }}</div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label fw-bold">Correo</label>
+            <div class="form-control bg-light">{{ user.email }}</div>
+        </div>
+    </div>
+
+    <div id="perfilMsg" class="alert d-none mt-3 mb-0" role="alert"></div>
+
+    <div class="mt-4 d-flex gap-2">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarPerfil">
+            Editar datos
+        </button>
+        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPassword">
+            Cambiar contraseña
+        </button>
+    </div>
+</div>
+
+<div class="modal fade" id="modalEditarPerfil" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar perfil</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <input id="nuevoNombre" class="form-control mb-3" placeholder="Nombre" value="{{ user.nombre }}">
+        <input id="nuevoEmail" class="form-control" placeholder="Correo" value="{{ user.email }}">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="actualizar()" class="btn btn-primary">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalPassword" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cambiar contraseña</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <input id="pass1" type="password" class="form-control" placeholder="Nueva contraseña">
+        <input id="pass2" type="password" class="form-control mt-3" placeholder="Confirmar contraseña">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="cambiarPass()" class="btn btn-warning">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/static/js/perfil.js"></script>
+
+{% endblock %}

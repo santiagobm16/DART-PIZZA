@@ -1,0 +1,199 @@
+/* ===== THEME (PASTEL) ===== */
+:root{
+    --bg: #f7f7ff;
+    --surface: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: rgba(31, 41, 55, 0.10);
+
+    --primary: #7c7cf6;   /* lavanda */
+    --primary-2: #a7e6ff; /* celeste pastel */
+    --success: #9be7c4;   /* verde menta */
+    --warning: #ffe2a8;   /* durazno */
+    --danger: #ffb4b4;    /* rosa */
+
+    --shadow: 0 10px 30px rgba(17, 24, 39, 0.10);
+    --shadow-sm: 0 6px 16px rgba(17, 24, 39, 0.08);
+    --radius: 16px;
+}
+
+/* ===== GENERAL ===== */
+body{
+    /* Fondo limpio (pastel suave, sin manchas) */
+    background: linear-gradient(180deg, #fbfbff 0%, var(--bg) 55%, #f9fbff 100%);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+/* Un poco más de aire en la app */
+.container{
+    max-width: 1150px;
+}
+
+/* ===== NAVBAR ===== */
+.navbar{
+    background: rgba(17, 24, 39, 0.88) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* ===== CARDS ===== */
+.card {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+    transition: 0.18s ease-in-out;
+    box-shadow: var(--shadow);
+}
+
+/* ===== IMÁGENES PRODUCTOS ===== */
+.card img {
+    height: 180px;
+    object-fit: cover;
+    border-radius: calc(var(--radius) - 6px) calc(var(--radius) - 6px) 0 0;
+}
+
+/* Imágenes de productos con padding/margen visual */
+.producto-img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    padding: 10px;
+    background: linear-gradient(180deg, rgba(167,230,255,0.20), rgba(124,124,246,0.06));
+    border-radius: calc(var(--radius) - 4px);
+    border: 1px solid rgba(124,124,246,0.10);
+}
+
+/* ===== BOTONES ===== */
+.btn {
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: .2px;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Botones pastel (override de bootstrap) */
+.btn-primary{
+    background: linear-gradient(135deg, var(--primary), var(--primary-2));
+    border: none;
+    box-shadow: 0 10px 18px rgba(124,124,246,0.20);
+    color: #0b1020;
+}
+.btn-success{
+    background: linear-gradient(135deg, var(--success), rgba(155,231,196,0.55));
+    border: none;
+    box-shadow: 0 10px 18px rgba(155,231,196,0.18);
+    color: #0b1020;
+}
+.btn-warning{
+    background: linear-gradient(135deg, var(--warning), rgba(255,226,168,0.55));
+    border: none;
+    box-shadow: 0 10px 18px rgba(255,226,168,0.20);
+    color: #0b1020;
+}
+.btn-danger{
+    background: linear-gradient(135deg, var(--danger), rgba(255,180,180,0.55));
+    border: none;
+    box-shadow: 0 10px 18px rgba(255,180,180,0.22);
+    color: #0b1020;
+}
+.btn-outline-light{
+    border-color: rgba(255,255,255,0.30);
+}
+.btn-outline-secondary{
+    border-color: rgba(31, 41, 55, 0.20);
+}
+
+/* ===== BADGES ===== */
+.badge {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+/* ===== TABLAS ===== */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead th{
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.table tbody tr{
+    border-color: var(--border);
+}
+.table tbody tr:hover{
+    background: rgba(167,230,255,0.18);
+}
+
+/* ===== INPUTS ===== */
+.form-control {
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.90);
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(124,124,246,0.18);
+    border-color: rgba(124,124,246,0.45);
+}
+
+/* ===== MODALES ===== */
+.modal-content {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+/* ===== CARRITO FIJO ===== */
+.fixed-bottom {
+    background: rgba(255,255,255,0.82) !important;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border) !important;
+    box-shadow: 0 -10px 30px rgba(17,24,39,0.10);
+}
+
+/* ===== CONTADOR (+ -) ===== */
+.btn-outline-dark {
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    text-align: center;
+    border-radius: 999px;
+    border-color: rgba(31, 41, 55, 0.18);
+}
+
+/* ===== ALERTAS ===== */
+.alert-custom {
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* ===== UTILIDADES ===== */
+.text-muted{
+    color: var(--muted) !important;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .card img {
+        height: 140px;
+    }
+}
