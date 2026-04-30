@@ -261,7 +261,7 @@ pip install -r requirements.txt
 docker-compose up --build
 
 2.5. Acceder al sistema, abrir en el navegador:
-http://localhost:5000
+http://127.0.0.1:5000
 
 ### 3. Descripción básica de endpoints.
 ## Gateway (uso principal – frontend)
