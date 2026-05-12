@@ -2,11 +2,15 @@ Fase 1 – OBSERVAR (sin modificar código)
 
 •	Apagar el servicio de mascotas
 ![Hacerpeticion](./evidencias/1.jpeg)
+
 •	Hacer varias peticiones al gateway
 ![Hacerpeticion](./evidencias/2.jpeg)
+
 •	Revisar logs
 ![Hacerpeticion](./evidencias/3.jpeg)
+
 ![Hacerpeticion](./evidencias/3_1.jpeg)
+
 Responder:
 ¿Qué hace el sistema actualmente?
 Rta: el gateway funciona como intermediairo entre el usuario y los servicios, cuando realiza la peticion a /mascotas, este intenta comunicarse con el backend utilizando solicitudes HTTP.
@@ -23,8 +27,11 @@ Todo lo anterior evita que el servico ya caido se sature.
 Fase 2 – APLICAR (Extensión del Circuit Breaker)
 A partir de lo implementado en clase para /mascotas, deben:
 -	Aplicar el mismo comportamiento en los demás endpoints del gateway (ej: /usuarios, /resumen u otros que tengan)
+
 ![Hacerpeticion](./evidencias/4.jpeg)
+
 ![Hacerpeticion](./evidencias/4_1.jpeg)
+
 ![Hacerpeticion](./evidencias/4_2.jpeg)
 Deben analizar y decidir:
 ¿Cada servicio debe tener su propio contador de fallos?
@@ -46,6 +53,7 @@ Rta: si falla un servicio el gateway empieza a registrar fallos, aumenta el cont
 No obstante, los demas servicios continuan respondiendo normalmente, esto demuestra una de las ventajas de trabajar con microservicios.
 
 FASE 3 – INVESTIGAR (Half-Open)
+
 Cada grupo debe investigar:
 ¿Qué significa “half-open”?
 Rta: es una fase intermedia dentro del patron circuit breaker, entonces cuando el circuito permanece abierto durante cierto tiempo, el sistema permite realizar nuevamente algunas solicitudes de prueba, estas sirven para comprobar si el backend ya volvio a funcionar correctamente.
@@ -71,8 +79,11 @@ Las funcionalidades agregadas fueron:
 -	nuevo intento de conexión que se puede ver en la terminal de la imagen.
 -	Cierre automatico del circuito cuando el servicio responde (terminal).
 -	Reapertura  del circuido cuando el backend continua fallando (terminal)
+
 ![Hacerpeticion](./evidencias/5.jpeg)
+
 ![Hacerpeticion](./evidencias/5_1.jpeg)
+
 ![Hacerpeticion](./evidencias/5_2.jpeg)
 
 Las funcionalidades agregadas fueron:
@@ -80,29 +91,36 @@ Las funcionalidades agregadas fueron:
 -	nuevo intento de conexión que se puede ver en la terminal de la imagen.
 -	Cierre automatico del circuito cuando el servicio responde (terminal).
 -	Reapertura  del circuido cuando el backend continua fallando (terminal)
+
 ![Hacerpeticion](./evidencias/5_3.jpeg)
+
 ![Hacerpeticion](./evidencias/5_4.jpeg)
+
 ![Hacerpeticion](./evidencias/5_5.jpeg)
 
 FASE 5 – VALIDAR
 Probar el sistema en diferentes escenarios:
 -	Servicio funcionando
 ![Hacerpeticion](./evidencias/6.jpeg)
+
 Con todos los contenedores activos, el gateway respondia normal, las solicitudes devolvian codigo HTTP 200 y la información se mostro correctamente.
 Logs indican conexiones exitosas entre los servicios.
 
 -	Servicio caído
 ![Hacerpeticion](./evidencias/6_1.jpeg)
+
 Cuando se apago el backend, comenzaron a aparecer errores de conexión, aumentaron los fallos registrados y el gateway devolvio respuestas controladas.
 Logs permitieron identidicar que el servicio no estaba disponible.
 
 -	Circuito abierto
 ![Hacerpeticion](./evidencias/6_2.jpeg)
+
 Luego de varios errores seguidos, el circuito se abrio automaticamente, el gateway dejo de enviar solicitudes al backend y respondio con codigo HTTP 503.
 Esta parte ayudo a reducir  solicitudes innecesarias a un servicio caido.
 
 -	Recuperación del servicio
 ![Hacerpeticion](./evidencias/6_3.jpeg)
+
 Y al finalizar se volvio a iniciar el backend desde docker, luego del tiempo de espera , el gateway realizo una nueva conexión, el servicio respondio correctamente y el circuito vovlio al estado normal.
 Permitiendo validar el funcionamiento de la recuperacion automatica implementada.
 
