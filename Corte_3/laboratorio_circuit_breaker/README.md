@@ -87,8 +87,8 @@ En esta etapa investigué el funcionamiento del estado Half-Open dentro del patr
 
 Observé que este mecanismo permite verificar si un microservicio ya se recuperó antes de volver a habilitar completamente las conexiones. También comprobé que, si el servicio continúa fallando durante la prueba, el circuito se vuelve a abrir automáticamente para proteger el gateway y mantener la estabilidad del sistema distribuido.
 
-#FASE 4 – IMPLEMENTAR (Recuperación)
-##Aplicar en su sistema:
+# FASE 4 – IMPLEMENTAR (Recuperación)
+## Aplicar en su sistema:
 •	Espera controlada (tiempo definido por usted)
 ![Hacerpeticion](./evidencias/Fase4_3.png)
 •	Un nuevo intento de conexión
@@ -104,8 +104,8 @@ En esta fase implementé el mecanismo de recuperación del Circuit Breaker utili
 
 Durante las pruebas observé que, mientras el circuito permanecía abierto, el sistema bloqueaba temporalmente las solicitudes hacia el servicio caído. Después del tiempo configurado, el gateway permitía una petición de prueba para verificar si el backend ya se había recuperado. Si la conexión funcionaba correctamente, el circuito se cerraba nuevamente y el servicio volvía a operar normalmente; en caso contrario, el circuito se abría otra vez automáticamente.
 
-#FASE 5 – VALIDAR
-##Probar el sistema en diferentes escenarios:
+# FASE 5 – VALIDAR
+## Probar el sistema en diferentes escenarios:
 •	Servicio funcionando
 ![Hacerpeticion](./evidencias/Fase5_1.png)
 •	Servicio caído
