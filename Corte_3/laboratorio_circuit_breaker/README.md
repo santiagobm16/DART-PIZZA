@@ -36,6 +36,7 @@ Puede observar que el gateway intentaba comunicarse con el backend y al estar ap
 
 # Fase 2 – APLICAR (Extensión del Circuit Breaker)
 A partir de lo implementado en clase para /mascotas, deben:
+
 •	Aplicar el mismo comportamiento en los demás endpoints del gateway (ej: /usuarios, /resumen u otros que tengan)
 ![Hacerpeticion](./evidencias/Fase2_1.png)
 ![Hacerpeticion](./evidencias/Fase2_2.png)
