@@ -1,4 +1,5 @@
 Fase 1 – OBSERVAR (sin modificar código)
+
 •	Apagar el servicio de mascotas
 ![Hacerpeticion](./evidencias/1.jpeg)
 •	Hacer varias peticiones al gateway
