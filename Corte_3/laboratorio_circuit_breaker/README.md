@@ -1,4 +1,4 @@
-## Fase 1 – OBSERVAR (sin modificar código)
+# Fase 1 – OBSERVAR (sin modificar código)
 •	Apagar el servicio de mascotas
 ![Apagarservicio](./evidencias/Fase1_1.png)
 
@@ -8,8 +8,8 @@
 •	Revisar logs
 ![Revisarlogs](./evidencias/Fase1_3.png)
  
-# Responder:
-# ¿Qué hace el sistema actualmente?
+## Responder:
+## ¿Qué hace el sistema actualmente?
 Rta: el sistema funciona mediante un gateway que actúa como intermediario entre el cliente y los microservicios.
 Cuando el usuario hace una petición a /mascotas, el gateway intenta comunicarse con el servicio backend correspondiente.
 Entonces: 
@@ -17,7 +17,7 @@ Entonces:
 -	Si el servicio de mascotas se apaga: el gateway detecta que no puede conectarse, captura el error, evita que el sistema completo falle y responde con un mensaje controlado indicando que el servicio no está disponible.
 Además, los logs permiten observar: intentos de conexión, errores de comunicación, timeouts y el estado de cada microservicio.
 
-# ¿Se protege o insiste?
+## ¿Se protege o insiste?
 Rta: El sistema hace ambas cosas, pero de manera básica.
 Se protege, porque: captura excepciones (ConnectionError, Timeout), evita que la aplicación colapse y responde con errores HTTP controlados como 503 Service Unavailable.
 Esto demuestra un manejo básico de tolerancia a fallos.
@@ -28,7 +28,7 @@ Por lo tanto:
 -	ante lentitud - sí insiste
 -	ante caída total del servicio - no insiste realmente.
 
-# Explicación breve (qué hice y qué observe)
+## Explicación breve (qué hice y qué observe)
 
 En esta fase primeramente apage el servicio de mascotas para simular la caída de un microservicio y posteriormente realize varias peticiones al gateway y los revise atreves de los logs del sistema.
 
