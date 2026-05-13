@@ -4,9 +4,7 @@ import time
 
 app = Flask(__name__)
 
-# =========================
 # CONFIGURACIÓN GENERAL
-# =========================
 
 SERVICIOS = {
     "usuarios": {
@@ -27,18 +25,14 @@ SERVICIOS = {
 MAX_FALLOS = 5 # fallos antes de generarse el bloqueo
 TIEMPO_ESPERA = 5 #espera 5 seg antes de volver a intentar
 
-
-# =========================
 # FUNCIÓN CIRCUIT BREAKER
-# =========================
 
 def consultar_servicio(nombre_servicio):
 
     servicio = SERVICIOS[nombre_servicio]
 
-    # =========================
+
     # CIRCUITO ABIERTO
-    # =========================
 
     if servicio["circuito"]:
 
@@ -51,9 +45,8 @@ def consultar_servicio(nombre_servicio):
                 "error": f"Servicio {nombre_servicio} temporalmente bloqueado"
             }, 503
 
-        # =========================
+      
         # HALF OPEN
-        # =========================
 
         print(f"[HALF OPEN] Reintentando conexion con {nombre_servicio}", flush=True)
 
@@ -87,9 +80,8 @@ def consultar_servicio(nombre_servicio):
                 "error": f"{nombre_servicio} intento 2, sigue caido"
             }, 503
 
-    # =========================
+
     # INTENTOS NORMALES
-    # =========================
 
     for intento in range(3): #llama 3 veces al servicio
 
@@ -137,9 +129,8 @@ def consultar_servicio(nombre_servicio):
                 flush=True
             )
 
-    # =========================
+  
     # ABRIR CIRCUITO
-    # =========================
 
     if servicio["fallos"] >= MAX_FALLOS:
 
@@ -153,9 +144,8 @@ def consultar_servicio(nombre_servicio):
     }, 503
 
 
-# =========================
-# RUTA USUARIOS consulta el servicio de usuarios
-# =========================
+
+# RUTA USUARIOS 
 
 @app.route("/usuarios")
 def usuarios():
@@ -165,9 +155,7 @@ def usuarios():
     return jsonify(data), status
 
 
-# =========================
 # RUTA MASCOTAS
-# =========================
 
 @app.route("/mascotas")
 def mascotas():
@@ -177,9 +165,7 @@ def mascotas():
     return jsonify(data), status
 
 
-# =========================
 # RESUMEN
-# =========================
 
 @app.route("/resumen")
 def resumen():
@@ -204,9 +190,7 @@ def resumen():
     })
 
 
-# =========================
 # MAIN
-# =========================
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
